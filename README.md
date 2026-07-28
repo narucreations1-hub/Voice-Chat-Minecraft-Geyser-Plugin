@@ -1,211 +1,202 @@
-# VCMC — Proximity Voice Chat for Minecraft
+# VCMC Java/Geyser Plugin 2.0
 
 <div align="center">
 
-<img src="https://antoic.com/icons/vcmc.png" width="110" alt="VCMC Logo">
+<img src="https://antoic.com/icons/vcmc.png" width="110" alt="VCMC logo">
 
-**The easiest proximity voice chat for Minecraft Bedrock and Java**
+**Proximity voice chat for Java servers and Bedrock players connected through Geyser**
 
-[📥 Download App](https://antoic.com/app.html) · [📖 Documentation](https://antoic.com/docs/vcmc.html) · [💬 Discord](https://discord.gg/HA5gKcpsaq)
+[Download VCMC](https://antoic.com/app.html) · [Documentation](https://antoic.com/docs/vcmc.html) · [Changelog](https://antoic.com/changelog/vcmc/) · [Discord](https://discord.gg/HA5gKcpsaq)
 
-[![iOS](https://img.shields.io/badge/iOS-App_Store-0A84FF?logo=apple&logoColor=white)](https://apps.apple.com/mx/app/vcmc-voice-chat-for-mc/id6784284005)
-[![Android](https://img.shields.io/badge/Android-Google_Play-34A853?logo=googleplay&logoColor=white)](https://play.google.com/store/apps/details?id=com.naru.vcmc)
-[![Windows](https://img.shields.io/badge/Windows-Microsoft_Store-0078D7?logo=windows&logoColor=white)](https://apps.microsoft.com/detail/9N74NFWF305Q)
-[![Web App](https://img.shields.io/badge/Mac_and_Linux-Web_App-5865F2?logo=firefoxbrowser&logoColor=white)](https://antoic.com/play/vcmc/)
+[![Version](https://img.shields.io/badge/VCMC-2.0-5865F2)](https://antoic.com/changelog/vcmc/2.0.0.html)
+[![API](https://img.shields.io/badge/Paper_API-1.20%2B-DBA53A)](https://papermc.io/)
+[![Geyser](https://img.shields.io/badge/Geyser-Compatible-2D88C9)](https://geysermc.org/)
 
 </div>
 
----
+## What This Plugin Does
 
-## This Repository
+The VCMC plugin connects a Java server to the VCMC voice service. It publishes player position, dimension, mute state, groups, effects, and server settings so the app can route voice correctly.
 
-This repo contains the official **VCMC Plugin for Java servers with Geyser** — the `.jar` file that enables proximity voice chat on Java servers with cross-play support for Bedrock players.
+It supports:
 
-👉 **[Download latest Plugin release on CurseForge →](https://www.curseforge.com/minecraft/bukkit-plugins/vcmc-voice-chat-for-mc-pluggin)**
+- Native Java players
+- Bedrock players through Geyser and Floodgate
+- Java inventory menus
+- Native Bedrock forms for Geyser players
+- Optional PlaceholderAPI integration
+- The VCMC Java resource pack and voice-state icons
 
----
+VCMC does not transmit microphone audio through the Minecraft server. Voice uses P2P connections when possible and SFU routing when a feature needs wider distribution.
 
-## What is VCMC?
+## Requirements
 
-VCMC is a **free proximity voice chat app for Minecraft**. Talk to nearby players in real time — the further away they are, the quieter they sound.
+- A Paper or compatible Java server using the Minecraft 1.20 API or newer
+- The Java version required by your Minecraft server
+- The VCMC app on every device that will use voice
+- Internet access to the VCMC service
 
-Originally built for **Minecraft Bedrock**, VCMC now also supports **Java servers via the Geyser plugin**. No Discord, no external calls, no complex configuration. Just open the app, paste one command in the Minecraft chat, and you're talking.
+Optional integrations:
 
----
+- **Geyser + Floodgate:** Bedrock cross-play and native Bedrock forms
+- **PlaceholderAPI:** voice state, level, mute, and megaphone placeholders
 
-## Why VCMC?
+## Installation
 
-| Feature | VCMC | Others |
-|---|:---:|:---:|
-| Minecraft Bedrock support | ✅ | ❌ Rare |
-| Java + Geyser support | ✅ | ❌ Rare |
-| Local worlds | ✅ | ❌ |
-| Dedicated server support | ✅ | Sometimes |
-| Setup time | ~30 seconds | Hours |
-| Floating overlay (control mic in-game) | ✅ | Sometimes |
-| In-game mute indicator on screen | ✅ | ✅ (rare) |
-| Nametag mute indicator | ✅ | ✅ (rare) |
-| **Config synced Minecraft ↔ app** | ✅ | ❌ |
-| iOS + Android + Windows + Linux | ✅ | Sometimes |
-| Free | ✅ | Sometimes |
+1. Download the latest release from [CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/vcmc-voice-chat-for-mc-pluggin) or this repository's [Releases](../../releases/latest).
+2. Place the VCMC `.jar` in the server's `plugins/` directory.
+3. Restart the server.
+4. Keep the generated `vcmc-room-token` private.
+5. Make `rp-port` reachable if Java clients cannot download the VCMC resource pack.
 
-> The one thing no other proximity chat does yet: your in-game VCMC settings sync straight to the app (and back). Most other differences are things competitors *sometimes* have — the linked config is the real standout.
+The plugin creates its protected room automatically. Players never need to know the room ID or token.
 
----
+## Player Setup
 
-## Downloads
+1. Open the VCMC app and add the server.
+2. Join the Minecraft server.
+3. Copy `/vcmc:verify "<code>"` from VCMC.
+4. Paste it in Minecraft chat.
+5. After verification, the same device reconnects automatically on later visits.
 
-### App (required on every device)
+Java and Bedrock players can use the same room. Java players receive inventory menus; Bedrock players connected through Geyser receive native forms.
 
-| Platform | Link |
-|---|---|
-| 📱 Android | [Google Play](https://play.google.com/store/apps/details?id=com.naru.vcmc) |
-| 🖥️ Windows | [Microsoft Store](https://apps.microsoft.com/detail/9N74NFWF305Q) · [GitHub (.exe)](https://github.com/NARUxd/Voice-Chat-Minecraft-PC-VCMC/releases) |
-| 🍎 macOS | [Web version](https://antoic.com/play/vcmc/) |
-| 🐧 Linux | [Web version](https://antoic.com/play/vcmc/) |
-| 🍎 iOS | [App Store](https://apps.apple.com/mx/app/vcmc-voice-chat-for-mc/id6784284005) |
+## VCMC 2.0 Features
 
-> **Mac & Linux:** use the [web version](https://antoic.com/play/vcmc/) — nothing to install, it runs right in the browser.
+- Distance and spatial voice data
+- Custom-dimension support
+- Bidirectional app and Minecraft settings
+- Master and per-player volume
+- Public, private, and administrative groups
+- Password-protected groups
+- Administrator password bypass with a confirmation warning
+- Self mute and administrative mute
+- Built-in, environmental, and custom voice effects
+- Megaphone with P2P/SFU routing
+- Speaking, mute, connection, and megaphone icons
+- PlaceholderAPI values for TAB and nametag plugins
+- Automatic room restoration and reconnection
+- Compatibility with older VCMC clients through the legacy protocol
 
-### Minecraft Files
-
-| File | Link |
-|---|---|
-| 🟩 Bedrock Addon (.mcaddon) | [Voice-Chat-Minecraft-Bedrock-VCMC-Addon/releases](https://github.com/narucreations1-hub/Voice-Chat-Minecraft-Bedrock-VCMC-Addon/releases) |
-| ☕ Java Plugin (.jar) | [CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/vcmc-voice-chat-for-mc-pluggin) |
-
----
-
-## Compatibility
-
-| Mode | Platform | What you need |
-|---|---|---|
-| **Local World** | Minecraft Bedrock | App + Addon (World pack) |
-| **Bedrock Server** | Any Bedrock server | App + Addon (Server pack) |
-| **Java Server** | Java server with Geyser | App + VCMC Plugin (.jar) |
-
----
-
-## App Interface
-
-### First Launch
-On first launch VCMC asks for **microphone permission** — required for voice chat to work. After granting it, you reach the main menu.
-
-From the main menu you can:
-- **Download the Addon** directly to your device
-- Open **World Rooms** — for local Minecraft worlds
-- Open **Server Rooms** — for Bedrock or Java servers
-
-### World Rooms
-Use this when you are hosting or joining a local Minecraft world.
-
-- **Host:** Tap **MY WORLD** to create a room. The app gives you a command to paste in Minecraft chat.
-- **Friends:** Tap **+**, enter the host's Gamertag, and join their room. No command needed on their side.
-
-### Server Rooms
-Use this for dedicated Bedrock or Java (Geyser) servers.
-
-You no longer enter an IP or port. The server creates its own VCMC room automatically — each player just adds a room with any name they like, then verifies once inside Minecraft with `/vcmc:verify`. After verifying, your device is remembered and you won't have to repeat it.
-
-### Floating Bubble (Overlay)
-Once connected, a small floating bubble stays visible over every app including Minecraft. No need to switch apps to manage your mic.
-
-| Bubble state | Meaning |
-|---|---|
-| 🟢 Green | Connected — microphone active |
-| 🔴 Red | Muted |
-| 🔌 Plug icon | Disconnected from Minecraft |
-
-Tap the bubble to toggle mute. Long-press to reposition it anywhere on screen.
-
-### In-Game Indicators *(rare in other apps)*
-- A **message appears on your Minecraft screen** every time you mute or unmute
-- A **symbol next to your nametag** shows your mic state to nearby players in real time
-
----
-
-## How to Use
-
-### Mode 1 — Local World (Bedrock)
-
-1. **Host:** Open VCMC → tap **MY WORLD** → a room is created.
-2. **Friends:** Open VCMC → tap **+** → enter the host's Gamertag → join the room.
-3. **Host:** Install the **World** behavior pack in your Minecraft world. In world settings → General: enable Websockets and disable "Encrypted Websockets only".
-4. **Host:** Open the floating bubble → copy the link → paste it in the Minecraft chat.
-5. ✅ Everyone hears each other with proximity audio.
-
-> Only the host installs the addon and pastes the command. Friends only join the room in the app.
-
-### Mode 2 — Bedrock Server
-
-1. Upload the **Server** behavior pack + resource pack to your server.
-2. For non-Aternos servers, add `@minecraft/server-net` to `config/default/permissions.json`.
-3. Players open VCMC → **SERVER** → add a room with any name.
-4. Each player copies the `/vcmc:verify` command the app shows and pastes it in Minecraft chat (once per device).
-5. ✅ Proximity voice chat is active.
-
-### Mode 3 — Java Server with Geyser
-
-1. Drop the VCMC `.jar` into your server's `plugins/` folder and restart.
-2. The plugin creates the server's VCMC room automatically (you'll see it in the console).
-3. Players open VCMC → **SERVER** → add a room with any name → paste `/vcmc:verify` in chat.
-4. ✅ Works for both Java and Bedrock players on the same server.
-
----
-
-## Commands Reference
-
-> **Local World mode has no commands** — the host just pastes the bubble link in the chat. The commands below are for **servers**, where each player connects by verifying once with `/vcmc:verify`.
-
-### Bedrock Addon (Server)
+## Player Commands
 
 | Command | Description |
 |---|---|
-| `/vcmc:verify <code>` | Verify your account with the code shown in the app (once per player/device) |
-| `/vcmc:menu` | Open your personal VCMC menu — settings, groups and per-player volume |
-| `/vcmc:admin` | Open the server admin panel (operators only) |
-| `/vcmc:mute <selector> <true\|false>` | Force-mute or restore a player. Example: `/vcmc:mute @a[name=Steve] true` |
-| `/vcmc:reconnect` | Check your connection and force an immediate re-check |
-| `/vcmc:room` | Show the server's internal Room ID (admins / diagnostics) |
-| `/vcmc:join <room_id> [token]` | ⚠️ Legacy/advanced — manually override the saved room. Not the normal flow |
+| `/vcmc:verify "<code>"` | Link the Minecraft player with the code shown by VCMC |
+| `/vcmc:menu` | Open voice settings, groups, and per-player volume |
+| `/vcmc:m [true\|false]` | Toggle or set your own mute state |
+| `/vcmc:groups` | Open the groups menu |
+| `/vcmc:groups create <name> [password]` | Create a group |
+| `/vcmc:groups join <group_or_name> [password]` | Join a group |
+| `/vcmc:groups leave` | Leave the current group |
+| `/vcmc:groups list` | List groups |
+| `/vcmc:groups delete [group_or_name]` | Delete a group you own |
 
-### Java Plugin (Geyser)
+## Administrator Commands
+
+These commands require `vcmc.admin`, which defaults to server operators.
 
 | Command | Description |
 |---|---|
-| `/vcmc:verify "<code>"` | Verify your account with the app's code (paste with quotes) |
-| `/vcmc:menu` | Personal menu in a chest UI: settings, groups, per-player volume |
-| `/vcmc:admin` | Admin panel in a chest UI. Requires OP or `vcmc.admin` |
-| `/vcmc:mute <player\|@a> <true\|false>` | Silence or restore a player |
-| `/vcmc:groups create/join/leave/list` | Create and manage voice groups |
-| `/vcmc:room` | Show the server's internal Room ID |
-| `/vcmc:reconnect` | Check if your app appears connected to the server |
+| `/vcmc:admin` | Open the administration menu |
+| `/vcmc:mute <player\|selector> <true\|false>` | Force or restore a player's microphone |
+| `/vcmc:groups-settings <group> <global\|external\|environmental> <true\|false>` | Change group routing |
+| `/vcmc:groups-admin create <group 1-255>` | Create an administrative group |
+| `/vcmc:groups-admin move <group\|0> <player\|selector>` | Move players between groups |
+| `/vcmc:groups-admin leave <player\|selector>` | Remove players from a group |
+| `/vcmc:groups-admin list` | List administrative groups |
+| `/vcmc:groups-admin delete <group>` | Delete an administrative group |
+| `/vcmc:megaphone <player\|selector> <true\|false>` | Enable or disable megaphone |
+| `/vcmc:sfx add <name> <json>` | Create a custom effect |
+| `/vcmc:sfx delete <name>` | Delete a custom effect |
+| `/vcmc:sfx list` | List custom effects |
+| `/vcmc:sfx-player set <player\|selector> <effect>` | Assign a built-in effect |
+| `/vcmc:sfx-player set <player\|selector> custom <name>` | Assign a custom effect |
+| `/vcmc:sfx-player clear <player\|selector>` | Clear an effect |
 
----
+### Custom SFX on Java
 
-## Full Documentation
+The Java command accepts a JSON object directly:
 
-Step-by-step guide with screenshots, troubleshooting and all configuration options:
+```text
+/vcmc:sfx add grave {"base":"normal","pitch":-4,"gain":2,"lowpass":4200,"highpass":80,"q":0.8,"distortion":1.5,"dry":1}
+```
 
-📖 **[antoic.com/docs/vcmc.html](https://antoic.com/docs/vcmc.html)**
+The Bedrock Addon uses a quoted and escaped JSON string instead.
 
----
+## Configuration
 
-## About the Project
+VCMC creates its room values automatically:
 
-VCMC is part of **[Antoic Projects](https://antoic.com)** — apps and tools for Minecraft created by **Naru**.
+```yaml
+vcmc-room-id: ""
+vcmc-room-token: ""
 
-This is a **solo project**. Updates may take time, but every bug report makes the app better. Thank you for your patience and support 🙏
+server-ip: ""
+bedrock-port: 19132
 
-### Found a bug?
-- Report it in the [Discord server](https://discord.gg/HA5gKcpsaq)
-- Or open an [Issue](../../issues) in this repository
+rp-port: 25580
+rp-host: ""
+```
 
-### Support the project
-VCMC is free and always will be. If it has been useful to you:
+- Do not share or manually replace `vcmc-room-token`.
+- Leave `server-ip` empty for automatic public-IP detection.
+- Set `rp-host` only when the resource pack must use a specific public host.
+- Open or forward `rp-port` if Java clients cannot receive the pack.
+- Server settings can also be changed from `/vcmc:admin`.
 
-💙 [paypal.me/NaruBoing](https://www.paypal.com/paypalme/NaruBoing)
+## PlaceholderAPI
 
----
+VCMC includes its own PlaceholderAPI expansion. No eCloud download is required.
 
-*Unofficial Minecraft application. Not affiliated with Mojang AB. "Minecraft" is a trademark of Mojang AB. [Mojang Brand Guidelines](http://account.mojang.com/documents/brand_guidelines).*
+| Placeholder | Value |
+|---|---|
+| `%vcmc_mic_icon%` | Current voice-state icon |
+| `%vcmc_mic_state%` | `disconnected`, `muted`, `idle`, or `speaking` |
+| `%vcmc_connected%` | `true` or `false` |
+| `%vcmc_muted%` | `true` or `false` |
+| `%vcmc_speaking%` | `true` or `false` |
+| `%vcmc_voice_level%` | Current level from `0` to `100` |
+| `%vcmc_megaphone_icon%` | Megaphone icon or an empty value |
+| `%vcmc_megaphone%` | `true` or `false` |
+| `%vcmc_disconnected_icon%` | Disconnection icon or an empty value |
+| `%vcmc_disconnected%` | `true` or `false` |
+
+`%vcmc_icon%` and `%vcmc_state%` are aliases for the first two placeholders.
+
+To let TAB or another formatting plugin control prefixes:
+
+```yaml
+settings:
+  show-icons: true
+  native-name-icons: false
+```
+
+See [PLACEHOLDERAPI.md](PLACEHOLDERAPI.md) for the complete integration notes.
+
+## Removed Commands
+
+`/vcmc:join`, `/vcmc:room`, and `/vcmc:reconnect` no longer exist. Room discovery and reconnection are automatic.
+
+## Building from Source
+
+```bash
+mvn clean package
+```
+
+The release artifact is processed by ProGuard. Generated and obfuscated JARs belong in GitHub or CurseForge releases, not in source commits.
+
+## Related Downloads
+
+- [VCMC app](https://antoic.com/app.html)
+- [Bedrock Addon](https://github.com/narucreations1-hub/Voice-Chat-Minecraft-Bedrock-VCMC-Addon)
+- [Windows releases](https://github.com/NARUxd/Voice-Chat-Minecraft-PC-VCMC/releases)
+- [Official documentation](https://antoic.com/docs/vcmc.html)
+- [VCMC 2.0 changelog](https://antoic.com/changelog/vcmc/2.0.0.html)
+
+## Help
+
+- [Discord support](https://discord.gg/HA5gKcpsaq)
+- [Repository issues](../../issues)
+
+VCMC is a free, independent project created by Naru. It is not affiliated with Mojang Studios. Minecraft is a trademark of Mojang AB.

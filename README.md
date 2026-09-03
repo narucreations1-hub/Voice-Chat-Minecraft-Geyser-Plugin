@@ -1,4 +1,4 @@
-# VCMC Java/Geyser Plugin 2.2
+# VCMC Java/Geyser Plugin 2.2.1
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 
 [Download VCMC](https://antoic.com/app.html) · [Documentation](https://antoic.com/docs/vcmc.html) · [Changelog](https://antoic.com/changelog/vcmc/) · [Discord](https://discord.gg/HA5gKcpsaq)
 
-[![Version](https://img.shields.io/badge/VCMC-2.2-5865F2)](https://antoic.com/changelog/vcmc/)
+[![Version](https://img.shields.io/badge/VCMC-2.2.1-5865F2)](https://antoic.com/changelog/vcmc/)
 [![API](https://img.shields.io/badge/Paper_API-1.20%2B-DBA53A)](https://papermc.io/)
 [![Geyser](https://img.shields.io/badge/Geyser-Compatible-2D88C9)](https://geysermc.org/)
 
@@ -61,7 +61,7 @@ The plugin creates its protected room automatically. Players never need to know 
 
 Java and Bedrock players can use the same room. Java players receive inventory menus; Bedrock players connected through Geyser receive native forms.
 
-## VCMC 2.2 Features
+## VCMC 2.2.1 Features
 
 - Distance and spatial voice data
 - Custom-dimension support
@@ -74,6 +74,7 @@ Java and Bedrock players can use the same room. Java players receive inventory m
 - Built-in, environmental, and custom voice effects
 - Megaphone with P2P/SFU routing
 - Speaking, mute, connection, and megaphone icons
+- Stable speaking and connection icons while players join or relay presence snapshots update
 - PlaceholderAPI values for TAB and nametag plugins
 - Automatic room restoration and reconnection
 - Compatibility with older VCMC clients through the legacy protocol

@@ -1,4 +1,4 @@
-# VCMC Java/Geyser Plugin 2.0
+# VCMC Java/Geyser Plugin 2.2
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 
 [Download VCMC](https://antoic.com/app.html) · [Documentation](https://antoic.com/docs/vcmc.html) · [Changelog](https://antoic.com/changelog/vcmc/) · [Discord](https://discord.gg/HA5gKcpsaq)
 
-[![Version](https://img.shields.io/badge/VCMC-2.0-5865F2)](https://antoic.com/changelog/vcmc/2.0.0.html)
+[![Version](https://img.shields.io/badge/VCMC-2.2-5865F2)](https://antoic.com/changelog/vcmc/)
 [![API](https://img.shields.io/badge/Paper_API-1.20%2B-DBA53A)](https://papermc.io/)
 [![Geyser](https://img.shields.io/badge/Geyser-Compatible-2D88C9)](https://geysermc.org/)
 
@@ -61,7 +61,7 @@ The plugin creates its protected room automatically. Players never need to know 
 
 Java and Bedrock players can use the same room. Java players receive inventory menus; Bedrock players connected through Geyser receive native forms.
 
-## VCMC 2.0 Features
+## VCMC 2.2 Features
 
 - Distance and spatial voice data
 - Custom-dimension support
@@ -77,6 +77,10 @@ Java and Bedrock players can use the same room. Java players receive inventory m
 - PlaceholderAPI values for TAB and nametag plugins
 - Automatic room restoration and reconnection
 - Compatibility with older VCMC clients through the legacy protocol
+- Simple Voice Chat group interoperability with password validation
+- Speaking-only native nametag microphone indicators
+- Localized starter command books and `/vcmc:book`
+- Korean interface and command-book translations
 
 ## Player Commands
 
@@ -84,6 +88,7 @@ Java and Bedrock players can use the same room. Java players receive inventory m
 |---|---|
 | `/vcmc:verify "<code>"` | Link the Minecraft player with the code shown by VCMC |
 | `/vcmc:menu` | Open voice settings, groups, and per-player volume |
+| `/vcmc:book [user\|admin]` | Receive the localized VCMC command guide (30-second cooldown) |
 | `/vcmc:m [true\|false]` | Toggle or set your own mute state |
 | `/vcmc:groups` | Open the groups menu |
 | `/vcmc:groups create <name> [password]` | Create a group |
@@ -137,6 +142,10 @@ bedrock-port: 19132
 
 rp-port: 25580
 rp-host: ""
+
+settings:
+  starter-books: true
+  nametag-mic-only-while-speaking: true
 ```
 
 - Do not share or manually replace `vcmc-room-token`.
@@ -192,7 +201,7 @@ The release artifact is processed by ProGuard. Generated and obfuscated JARs bel
 - [Bedrock Addon](https://github.com/narucreations1-hub/Voice-Chat-Minecraft-Bedrock-VCMC-Addon)
 - [Windows releases](https://github.com/NARUxd/Voice-Chat-Minecraft-PC-VCMC/releases)
 - [Official documentation](https://antoic.com/docs/vcmc.html)
-- [VCMC 2.0 changelog](https://antoic.com/changelog/vcmc/2.0.0.html)
+- [VCMC changelog](https://antoic.com/changelog/vcmc/)
 
 ## Help
 

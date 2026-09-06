@@ -1,4 +1,4 @@
-# VCMC Java/Geyser Plugin 2.2.1
+# VCMC Java/Geyser Plugin 2.2.2
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 
 [Download VCMC](https://antoic.com/app.html) · [Documentation](https://antoic.com/docs/vcmc.html) · [Changelog](https://antoic.com/changelog/vcmc/) · [Discord](https://discord.gg/HA5gKcpsaq)
 
-[![Version](https://img.shields.io/badge/VCMC-2.2.1-5865F2)](https://antoic.com/changelog/vcmc/)
+[![Version](https://img.shields.io/badge/VCMC-2.2.2-5865F2)](../../releases/latest)
 [![API](https://img.shields.io/badge/Paper_API-1.20%2B-DBA53A)](https://papermc.io/)
 [![Geyser](https://img.shields.io/badge/Geyser-Compatible-2D88C9)](https://geysermc.org/)
 
@@ -27,19 +27,28 @@ It supports:
 - Optional PlaceholderAPI integration
 - The VCMC Java resource pack and voice-state icons
 
-VCMC does not transmit microphone audio through the Minecraft server. Voice uses P2P connections when possible and SFU routing when a feature needs wider distribution.
+VCMC supports direct server voice, P2P/SFU voice, and an optional Simple Voice Chat bridge. With that bridge enabled, VCMC app and web users can speak with players using the native SVC mod. The managed relay default is `https://ws.antoic.com:8443`.
+
+## Changes in 2.2.2
+
+- Restore bidirectional browser audio with Simple Voice Chat, including browser PCM format conversion.
+- Apply the correct proximity distance per listener and fade app audio smoothly to silence at the range boundary.
+- Preserve SVC group and addon routing, cancellation, and audio modifications in the bridge.
+- Keep native SVC icons for players using its mod and server resource-pack icons for Java players without it.
+- Production build processed with ProGuard; 133 Java tests and 10 integration contract checks passed. Web-to-SVC audio and proximity were also checked in a live Java/Bedrock session.
 
 ## Requirements
 
 - A Paper or compatible Java server using the Minecraft 1.20 API or newer
 - The Java version required by your Minecraft server
-- The VCMC app on every device that will use voice
+- The VCMC app or web client for VCMC users; Java users may instead use the native SVC mod when the optional bridge is enabled
 - Internet access to the VCMC service
 
 Optional integrations:
 
 - **Geyser + Floodgate:** Bedrock cross-play and native Bedrock forms
 - **PlaceholderAPI:** voice state, level, mute, and megaphone placeholders
+- **Simple Voice Chat 2.6.x:** native SVC interoperability, tested with 2.6.21. The bridge validates its adapter on startup; SVC 2.5.x is not supported by this adapter.
 
 ## Installation
 
